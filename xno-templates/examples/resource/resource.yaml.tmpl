@@ -1,0 +1,11 @@
+apiVersion: resource.<PROVIDER_NAME>.jet.crossplane.io/v1alpha1
+kind: Resource
+metadata:
+  name: addressresource1
+  annotations:
+    terraformResourceType: <RESOURCE_TYPE>
+spec:
+  forProvider:
+    <RESOURCE_DEFINITION>
+  providerConfigRef:
+    name: default

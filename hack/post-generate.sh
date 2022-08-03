@@ -27,16 +27,21 @@ sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" examples/resource/resource.yam
 
 sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" config/resource/config.go
 
-#Update Schema json
+#TODO Update Schema json
 
 mkdir -p apis/resource/v1alpha1
-cp xno-tmpls/apis/resource/v1alpha1/zz_generated.deepcopy.go.tmpl apis/resource/v1alpha1/zz_generated.deepcopy.go 
+cp xno-tmpls/apis/resource/v1alpha1/zz_generated.deepcopy.go.tmpl apis/resource/v1alpha1/zz_generated.deepcopy.go
 cp xno-tmpls/apis/resource/v1alpha1/zz_generated.managed.go.tmpl apis/resource/v1alpha1/zz_generated.managed.go
 cp xno-tmpls/apis/resource/v1alpha1/zz_generated.managedlist.go.tmpl apis/resource/v1alpha1/zz_generated.managedlist.go
 cp xno-tmpls/apis/resource/v1alpha1/zz_generated_terraformed.go.tmpl apis/resource/v1alpha1/zz_generated_terraformed.go
+sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" apis/resource/v1alpha1/zz_generated_terraformed.go
 cp xno-tmpls/apis/resource/v1alpha1/zz_groupversion_info.go.tmpl apis/resource/v1alpha1/zz_groupversion_info.go
+sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" apis/resource/v1alpha1/zz_groupversion_info.go
 cp xno-tmpls/apis/resource/v1alpha1/zz_resource_types.go.tmpl apis/resource/v1alpha1/zz_resource_types.go
-#TODO Replace
+sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" apis/resource/v1alpha1/zz_resource_types.go
+
+mkdir apis/tools/v1alpha1
+cp xno-tmpls/apis/tools/v1alpha1/apis_tools.go apis/tools/v1alpha1/apis_tools.go
 
 cp xno-tmpls/apis/zz_register.go.tmpl apis/zz_register.go
 sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" apis/zz_register.go

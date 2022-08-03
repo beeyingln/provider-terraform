@@ -40,7 +40,7 @@ sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" apis/resource/v1alpha1/zz_grou
 cp xno-tmpls/apis/resource/v1alpha1/zz_resource_types.go.tmpl apis/resource/v1alpha1/zz_resource_types.go
 sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" apis/resource/v1alpha1/zz_resource_types.go
 
-mkdir apis/tools/v1alpha1
+mkdir -p apis/tools/v1alpha1
 cp xno-tmpls/apis/tools/v1alpha1/apis_tools.go apis/tools/v1alpha1/apis_tools.go
 
 cp xno-tmpls/apis/zz_register.go.tmpl apis/zz_register.go

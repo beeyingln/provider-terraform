@@ -113,7 +113,7 @@ func (tr *Resource) LateInitialize(attrs []byte) (bool, error) {
 
 	li := resource.NewGenericLateInitializer(opts...)
 	//return li.LateInitialize(&tr.Spec.ForProvider, params)
-	return li.LateInitialize(&ap, params)
+	return li.LateInitialize(ap, params)
 }
 
 // GetTerraformSchemaVersion returns the associated Terraform schema version

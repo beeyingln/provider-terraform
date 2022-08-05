@@ -7,8 +7,11 @@ rm -rf !(providerconfig|resource)
 cd ../..
 
 cd package/crds
-rm -v !("${ProviderNameLower}.jet.crossplane.io_providerconfigs.yaml"|"${ProviderNameLower}.jet.crossplane.io_providerconfigusages.yaml"|"${ProviderNameLower}.jet.crossplane.io_storeconfigs.yaml"|"${ProviderNameLower}.${ProviderNameLower}.jet.crossplane.io_aggregates.yaml"|"resource.${ProviderNameLower}.jet.crossplane.io_resources.yaml")
+rm -v !("${ProviderNameLower}.jet.crossplane.io_providerconfigs.yaml"|"${ProviderNameLower}.jet.crossplane.io_providerconfigusages.yaml"|"${ProviderNameLower}.jet.crossplane.io_storeconfigs.yaml")
 cd ../..
+
+cp xno-tmpls/package/crds/resource.terraform.jet.crossplane.io_resources.yaml.tmpl package/crds/resource.${ProviderNameLower}.jet.crossplane.io_resources.yaml
+sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" "package/crds/resource.${ProviderNameLower}.jet.crossplane.io_resources.yaml"
 
 
 cp xno-tmpls/internal/controller/zz_setup.go.tmpl internal/controller/zz_setup.go

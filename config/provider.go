@@ -23,16 +23,20 @@ import (
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
-	"github.com/crossplane-contrib/provider-jet-template/config/resource"
+	"github.com/crossplane-contrib/provider-jet-github/config/resource"
+	jsonpatch "github.com/evanphx/json-patch"
 )
 
 const (
-	resourcePrefix = "template"
-	modulePath     = "github.com/crossplane-contrib/provider-jet-template"
+	resourcePrefix = "github"
+	modulePath     = "github.com/crossplane-contrib/provider-jet-github"
 )
 
 //go:embed schema.json
 var providerSchema string
+
+//go:embed patch_schema.json
+var patchSchema string
 
 // GetProvider returns provider configuration
 func GetProvider() *tjconfig.Provider {
@@ -45,7 +49,12 @@ func GetProvider() *tjconfig.Provider {
 		return r
 	}
 
-	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), resourcePrefix, modulePath,
+	modifiedSchema, err := jsonpatch.MergePatch([]byte(providerSchema), []byte(patchSchema))
+	if err != nil {
+		panic(err)
+	}
+
+	pc := tjconfig.NewProviderWithSchema([]byte(modifiedSchema), resourcePrefix, modulePath,
 		tjconfig.WithDefaultResourceFn(defaultResourceFn))
 
 	for _, configure := range []func(provider *tjconfig.Provider){

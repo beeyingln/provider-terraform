@@ -149,3 +149,7 @@ crossplane.help:
 help-special: crossplane.help
 
 .PHONY: crossplane.help help-special
+
+generate-provider: submodules
+	./hack/prepare.sh || true
+	make generate

@@ -7,7 +7,7 @@ rm -rf !(providerconfig|resource)
 cd ../..
 
 cd package/crds
-rm -v !("${ProviderNameLower}.jet.crossplane.io_providerconfigs.yaml"|"${ProviderNameLower}.jet.crossplane.io_providerconfigusages.yaml"|"${ProviderNameLower}.jet.crossplane.io_storeconfigs.yaml"|"${ProviderNameLower}.${ProviderNameLower}.jet.crossplane.io_aggregates.yaml")
+rm -v !("${ProviderNameLower}.jet.crossplane.io_providerconfigs.yaml"|"${ProviderNameLower}.jet.crossplane.io_providerconfigusages.yaml"|"${ProviderNameLower}.jet.crossplane.io_storeconfigs.yaml"|"${ProviderNameLower}.${ProviderNameLower}.jet.crossplane.io_aggregates.yaml"|"resource.${ProviderNameLower}.jet.crossplane.io_resources.yaml")
 cd ../..
 
 

@@ -11,9 +11,6 @@ rm -v !("${ProviderNameLower}.jet.crossplane.io_providerconfigs.yaml"|"${Provide
 cd ../..
 
 
-cp xno-tmpls/package/crds/resource.terraform.jet.crossplane.io_resources.yaml.tmpl package/crds/resource.${ProviderNameLower}.jet.crossplane.io_resources.yaml
-sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" "package/crds/resource.${ProviderNameLower}.jet.crossplane.io_resources.yaml"
-
 mkdir internal/controller/resource
 cp xno-tmpls/internal/controller/resource/zz_controller.go.tmpl internal/controller/resource/zz_controller.go
 sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" internal/controller/resource/zz_controller.go
@@ -21,11 +18,6 @@ sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" internal/controller/resource/z
 cp xno-tmpls/internal/controller/zz_setup.go.tmpl internal/controller/zz_setup.go
 sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" internal/controller/zz_setup.go
 
-mkdir examples/resource
-cp xno-tmpls/examples/resource/resource.yaml.tmpl examples/resource/resource.yaml
-sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" examples/resource/resource.yaml
-
-sed -i "s/<PROVIDER_NAME>/${ProviderNameLower}/g" config/resource/config.go
 
 #TODO Update Schema json
 

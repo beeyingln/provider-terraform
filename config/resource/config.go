@@ -6,7 +6,7 @@ import (
 
 // Configure configures individual resources by adding custom ResourceConfigurators.
 func Configure(p *config.Provider) {
-	p.AddResourceConfigurator("<PROVIDER_NAME>_resource", func(r *config.Resource) {
+	p.AddResourceConfigurator("template>_resource", func(r *config.Resource) {
 
 		// we need to override the default group that terrajet generated for
 		// this resource, which would be "github"

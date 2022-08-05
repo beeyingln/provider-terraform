@@ -3,7 +3,7 @@
 shopt -s extglob
 
 cd internal/controller
-rm -rf !(providerconfig)
+rm -rf !(providerconfig|resource)
 cd ../..
 
 cd package/crds

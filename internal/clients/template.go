@@ -69,8 +69,8 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		if err != nil {
 			return ps, errors.Wrap(err, errExtractCredentials)
 		}
-		netboxCreds := map[string]string{}
-		if err := json.Unmarshal(data, &netboxCreds); err != nil {
+		templateCreds := map[string]string{}
+		if err := json.Unmarshal(data, &templateCreds); err != nil {
 			return ps, errors.Wrap(err, errUnmarshalCredentials)
 		}
 
@@ -79,13 +79,13 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		// credentials via the environment variables. You should specify
 		// credentials via the Terraform main.tf.json instead.
 		/*ps.Env = []string{
-			fmt.Sprintf("%s=%s", "HASHICUPS_USERNAME", netboxCreds["username"]),
-			fmt.Sprintf("%s=%s", "HASHICUPS_PASSWORD", netboxCreds["password"]),
+			fmt.Sprintf("%s=%s", "HASHICUPS_USERNAME", templateCreds["username"]),
+			fmt.Sprintf("%s=%s", "HASHICUPS_PASSWORD", templateCreds["password"]),
 		}*/
 		// set credentials in Terraform provider configuration
 		/*ps.Configuration = map[string]interface{}{
-			"username": netboxCreds["username"],
-			"password": netboxCreds["password"],
+			"username": templateCreds["username"],
+			"password": templateCreds["password"],
 		}*/
 		return ps, nil
 	}

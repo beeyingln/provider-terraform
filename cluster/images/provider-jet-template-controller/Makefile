@@ -6,7 +6,7 @@ include ../../../build/makelib/common.mk
 
 # ====================================================================================
 #  Options
-IMAGE = $(BUILD_REGISTRY)/provider-jet-netbox-controller-$(ARCH)
+IMAGE = $(BUILD_REGISTRY)/provider-jet-template-controller-$(ARCH)
 include ../../../build/makelib/image.mk
 
 # ====================================================================================

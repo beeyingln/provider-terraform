@@ -27,7 +27,7 @@ import (
 
 	"github.com/crossplane/terrajet/pkg/terraform"
 
-	"github.com/crossplane-contrib/provider-jet-netbox/apis/v1alpha1"
+	"github.com/crossplane-contrib/provider-jet-template/apis/v1alpha1"
 )
 
 const (
@@ -36,7 +36,7 @@ const (
 	errGetProviderConfig    = "cannot get referenced ProviderConfig"
 	errTrackUsage           = "cannot track ProviderConfig usage"
 	errExtractCredentials   = "cannot extract credentials"
-	errUnmarshalCredentials = "cannot unmarshal netbox credentials as JSON"
+	errUnmarshalCredentials = "cannot unmarshal template credentials as JSON"
 )
 
 // TerraformSetupBuilder builds Terraform a terraform.SetupFn function which

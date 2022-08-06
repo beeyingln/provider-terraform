@@ -1,8 +1,8 @@
-module github.com/crossplane-contrib/provider-jet-template
+module github.com/crossplane-contrib/provider-jet-github
 
 go 1.17
 
-replace github.com/crossplane/terrajet => /home/vagrant/workspace/spike/terrajet
+//REPLACE-TO-LOCAL//
 
 require (
 	github.com/crossplane/crossplane-runtime v0.15.1-0.20220315141414-988c9ba9c255

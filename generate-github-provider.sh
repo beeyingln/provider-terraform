@@ -1,5 +1,5 @@
-export ProviderNameUpper=Github
-export ProviderNameLower=github
+export ProviderNameUpper="Github"
+export ProviderNameLower="github"
 export TERRAFORM_PROVIDER_SOURCE="integrations/github"
 export TERRAFORM_PROVIDER_VERSION="4.19.2"
 export TERRAFORM_PROVIDER_DOWNLOAD_NAME="terraform-provider-github"

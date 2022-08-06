@@ -1,11 +1,11 @@
-export ProviderNameLower="${ProviderNameLower:-'github'}"
-export ProviderNameUpper"${ProviderNameUpper:-'Github'}"
+export ProviderNameLower="${ProviderNameLower:-github}"
+export ProviderNameUpper"${ProviderNameUpper:-Github}"
 
-export TERRAFORM_PROVIDER_SOURCE="${TERRAFORM_PROVIDER_SOURCE:-'integrations/github'}"
-export TERRAFORM_PROVIDER_VERSION="${TERRAFORM_PROVIDER_VERSION:-'4.19.2'}"
-export TERRAFORM_PROVIDER_DOWNLOAD_NAME="${TERRAFORM_PROVIDER_DOWNLOAD_NAME:-'terraform-provider-github'}"
-export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX="${TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX:-'https://releases.hashicorp.com/terraform-provider-github/4.19.2'}"
-export TERRAFORM_NATIVE_PROVIDER_BINARY="${TERRAFORM_NATIVE_PROVIDER_BINARY:-'terraform-provider-github_4.19.2'}"
+export TERRAFORM_PROVIDER_SOURCE="${TERRAFORM_PROVIDER_SOURCE:-integrations/github}"
+export TERRAFORM_PROVIDER_VERSION="${TERRAFORM_PROVIDER_VERSION:-4.19.2}"
+export TERRAFORM_PROVIDER_DOWNLOAD_NAME="${TERRAFORM_PROVIDER_DOWNLOAD_NAME:-terraform-provider-github}"
+export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX="${TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX:-https://releases.hashicorp.com/terraform-provider-github/4.19.2}"
+export TERRAFORM_NATIVE_PROVIDER_BINARY="${TERRAFORM_NATIVE_PROVIDER_BINARY:-terraform-provider-github_4.19.2}"
 
 echo "Start Generate Terraform Provider"
 echo "ProviderNameLower=$ProviderNameLower"

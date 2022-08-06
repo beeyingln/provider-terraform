@@ -1,5 +1,5 @@
-export ProviderNameLower=netbox
-export ProviderNameUpper=Netbox
+export ProviderNameLower="netbox"
+export ProviderNameUpper="Netbox"
 export TERRAFORM_PROVIDER_SOURCE="e-breuninger/netbox"
 export TERRAFORM_PROVIDER_VERSION="2.0.2"
 export TERRAFORM_PROVIDER_DOWNLOAD_NAME="terraform-provider-netbox"

@@ -18,7 +18,8 @@
 # See: https://github.com/crossplane/terrajet/blob/main/docs/generating-a-provider.md
 set -euo pipefail
 
-REPLACE_FILES='./* ./.github :!build/** :!go.* :!hack/prepare.sh'
+# XNO-MODIF : Include apis/resource/v1alpha1/*
+REPLACE_FILES='./apis/resource/v1alpha1/* ./* ./.github :!build/** :!go.* :!hack/prepare.sh'
 # shellcheck disable=SC2086
 git grep -l 'template' -- ${REPLACE_FILES} | xargs sed -i.bak "s/template/${ProviderNameLower}/g"
 # shellcheck disable=SC2086
@@ -33,6 +34,12 @@ git clean -fd
 git mv "internal/clients/template.go" "internal/clients/${ProviderNameLower}.go"
 git mv "cluster/images/provider-jet-template" "cluster/images/provider-jet-${ProviderNameLower}"
 git mv "cluster/images/provider-jet-template-controller" "cluster/images/provider-jet-${ProviderNameLower}-controller"
+
+# XNO-MODIF : rename CRD files
+git mv "package/crds/resource.template.jet.crossplane.io_resources.yaml" "package/crds/resource.${ProviderNameLower}.jet.crossplane.io_resources.yaml"
+git mv "package/crds/template.jet.crossplane.io_providerconfigs.yaml" "package/crds/${ProviderNameLower}.jet.crossplane.io_providerconfigs.yaml"
+git mv "package/crds/template.jet.crossplane.io_providerconfigusages.yaml" "package/crds/${ProviderNameLower}.jet.crossplane.io_providerconfigusages.yaml"
+git mv "package/crds/template.jet.crossplane.io_storeconfigs.yaml" "package/crds/${ProviderNameLower}.jet.crossplane.io_storeconfigs.yaml"
 
 # We need to remove this api folder otherwise first `make generate` fails with
 # the following error probably due to some optimizations in go generate with v1.17:

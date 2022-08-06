@@ -18,8 +18,7 @@
 # See: https://github.com/crossplane/terrajet/blob/main/docs/generating-a-provider.md
 set -euo pipefail
 
-# XNO-MODIF : Include apis/resource/v1alpha1/*
-REPLACE_FILES='./apis/resource/v1alpha1/* ./* ./.github :!build/** :!go.* :!hack/prepare.sh'
+REPLACE_FILES='./* ./.github :!build/** :!go.* :!hack/prepare.sh'
 # shellcheck disable=SC2086
 git grep -l 'template' -- ${REPLACE_FILES} | xargs -r sed -i.bak "s/template/${ProviderNameLower}/g"
 # shellcheck disable=SC2086

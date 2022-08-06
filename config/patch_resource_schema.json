@@ -2,7 +2,7 @@
     "provider_schemas": {
         "registry.terraform.io/tf_provider_source": {
             "data_source_schemas": {
-                "github_resource": {
+                "template_resource": {
                     "block": {
                         "attributes": {
                             "id": {

@@ -22,14 +22,13 @@ REPLACE_FILES='./* ./.github :!build/** :!go.* :!hack/prepare.sh'
 # shellcheck disable=SC2086
 git grep -l 'template' -- ${REPLACE_FILES} | xargs -r sed -i.bak "s/template/${ProviderNameLower}/g"
 # shellcheck disable=SC2086
-git grep -l 'tf_provider_source' -- './config/patch_resource_schema.json' | xargs -r sed -i.bak "s/tf_provider_source/${TERRAFORM_PROVIDER_SOURCE}/g"
-# shellcheck disable=SC2086
 git grep -l 'template' -- ./config/patch_resource_schema.json | xargs -r sed -i.bak "s/tf_provider_source/${TERRAFORM_PROVIDER_SOURCE}/g"
 # shellcheck disable=SC2086
 git grep -l 'Template' -- ${REPLACE_FILES} | xargs -r sed -i.bak "s/Template/${ProviderNameUpper}/g"
 # We need to be careful while replacing "template" keyword in go.mod as it could tamper
 # some imported packages under require section.
 sed -i.bak "s/provider-jet-template/provider-jet-${ProviderNameLower}/g" go.mod
+sed -i.bak "s/tf_provider_source/${TERRAFORM_PROVIDER_SOURCE}/g" ./config/patch_resource_schema.json
 
 # Clean up the .bak files created by sed
 git clean -fd

@@ -1,11 +1,12 @@
 # ====================================================================================
 # Setup Project
 
-PROJECT_NAME := provider-jet-github
+PROJECT_NAME := provider-jet-template
 PROJECT_REPO := github.com/crossplane-contrib/$(PROJECT_NAME)
 
 export TERRAFORM_VERSION := 1.1.6
 
+# XNO-MODIF : Take into account env var defined outside 
 export TERRAFORM_PROVIDER_SOURCE ?= integrations/github
 export TERRAFORM_PROVIDER_VERSION ?= 4.19.2
 export TERRAFORM_PROVIDER_DOWNLOAD_NAME ?= terraform-provider-github
@@ -52,7 +53,7 @@ GO111MODULE = on
 # Setup Images
 
 DOCKER_REGISTRY ?= crossplane
-IMAGES = provider-jet-github provider-jet-github-controller
+IMAGES = provider-jet-template provider-jet-template-controller
 -include build/makelib/image.mk
 
 # ====================================================================================
@@ -150,6 +151,7 @@ help-special: crossplane.help
 
 .PHONY: crossplane.help help-special
 
+# XNO-MODIF : add target to generate
 generate-provider: submodules
 	./hack/prepare.sh || true
 	make generate

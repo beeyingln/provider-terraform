@@ -28,15 +28,16 @@ import (
 )
 
 const (
-	resourcePrefix = "github"
-	modulePath     = "github.com/crossplane-contrib/provider-jet-github"
+	resourcePrefix = "template"
+	modulePath     = "github.com/crossplane-contrib/provider-jet-template"
 )
 
 //go:embed schema.json
 var providerSchema string
 
-//go:embed patch_schema.json
-var patchSchema string
+// XNO-MODIF : add patch resource schema
+//go:embed patch_resource_schema.json
+var patchResourceSchema string
 
 // GetProvider returns provider configuration
 func GetProvider() *tjconfig.Provider {
@@ -44,12 +45,14 @@ func GetProvider() *tjconfig.Provider {
 		r := tjconfig.DefaultResource(name, terraformResource)
 		// Add any provider-specific defaulting here. For example:
 		//   r.ExternalName = tjconfig.IdentifierFromProvider
+		// XNO-MODIF : By default External name is coming from the Provider
 		r.ExternalName = tjconfig.IdentifierFromProvider
 
 		return r
 	}
 
-	modifiedSchema, err := jsonpatch.MergePatch([]byte(providerSchema), []byte(patchSchema))
+	// XNO-MODIF : Append custom resource schema with Terraform Provider Schema
+	modifiedSchema, err := jsonpatch.MergePatch([]byte(providerSchema), []byte(patchResourceSchema))
 	if err != nil {
 		panic(err)
 	}

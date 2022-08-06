@@ -1,13 +1,14 @@
-module github.com/crossplane-contrib/provider-jet-github
+module github.com/crossplane-contrib/provider-jet-template
 
 go 1.17
 
-//REPLACE-TO-LOCAL//
+replace github.com/crossplane/terrajet => /home/vagrant/workspace/spike/terrajet
 
 require (
 	github.com/crossplane/crossplane-runtime v0.15.1-0.20220315141414-988c9ba9c255
 	github.com/crossplane/crossplane-tools v0.0.0-20220310165030-1f43fc12793e
 	github.com/crossplane/terrajet v0.4.0-rc.0.0.20220510203225-5e7094f2ea5c
+	github.com/evanphx/json-patch v4.12.0+incompatible
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.7.0
 	github.com/pkg/errors v0.9.1
 	gopkg.in/alecthomas/kingpin.v2 v2.2.6
@@ -30,7 +31,6 @@ require (
 	github.com/cespare/xxhash/v2 v2.1.1 // indirect
 	github.com/dave/jennifer v1.4.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/evanphx/json-patch v4.12.0+incompatible // indirect
 	github.com/fatih/camelcase v1.0.0 // indirect
 	github.com/fatih/color v1.12.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect

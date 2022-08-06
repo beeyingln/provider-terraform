@@ -18,7 +18,6 @@
 # See: https://github.com/crossplane/terrajet/blob/main/docs/generating-a-provider.md
 set -euo pipefail
 
-sed -i.bak "s/tf_provider_source/${TERRAFORM_PROVIDER_SOURCE}/g" ./config/patch_resource_schema.json
 REPLACE_FILES='./* ./.github :!build/** :!go.* :!hack/prepare.sh'
 # shellcheck disable=SC2086
 git grep -l 'template' -- ${REPLACE_FILES} | xargs -r sed -i.bak "s/template/${ProviderNameLower}/g"
@@ -29,6 +28,7 @@ git grep -l 'Template' -- ${REPLACE_FILES} | xargs -r sed -i.bak "s/Template/${P
 # We need to be careful while replacing "template" keyword in go.mod as it could tamper
 # some imported packages under require section.
 sed -i.bak "s/provider-jet-template/provider-jet-${ProviderNameLower}/g" go.mod
+sed -i.bak "s@tf_provider_source@${TERRAFORM_PROVIDER_SOURCE}@g" ./config/patch_resource_schema.json
 
 # Clean up the .bak files created by sed
 git clean -fd

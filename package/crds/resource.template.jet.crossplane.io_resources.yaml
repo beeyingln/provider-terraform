@@ -5,14 +5,14 @@ metadata:
   annotations:
     controller-gen.kubebuilder.io/version: v0.8.0
   creationTimestamp: null
-  name: resources.resource.template.jet.crossplane.io
+  name: resources.resource.github.jet.crossplane.io
 spec:
-  group: resource.template.jet.crossplane.io
+  group: resource.github.jet.crossplane.io
   names:
     categories:
     - crossplane
     - managed
-    - templatejet
+    - githubjet
     kind: Resource
     listKind: ResourceList
     plural: resources

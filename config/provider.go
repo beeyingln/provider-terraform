@@ -23,7 +23,7 @@ import (
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
-	"github.com/crossplane-contrib/provider-jet-github/config/resource"
+	"github.com/crossplane-contrib/provider-jet-template/config/resource"
 	jsonpatch "github.com/evanphx/json-patch"
 )
 

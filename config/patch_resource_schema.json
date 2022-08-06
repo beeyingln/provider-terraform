@@ -1,6 +1,6 @@
 {
     "provider_schemas": {
-        "registry.terraform.io/integrations/github": {
+        "registry.terraform.io/tf_provider_source": {
             "data_source_schemas": {
                 "github_resource": {
                     "block": {
@@ -18,7 +18,7 @@
                 }
             },
             "resource_schemas": {
-                "github_resource": {
+                "template_resource": {
                     "block": {
                         "attributes": {
                             "id": {
@@ -28,7 +28,7 @@
                                 "type": "string"
                             }
                         },
-                        "description": "From the [official documentation](https://docs.netbox.dev/en/stable/core-functionality/devices/#platforms):\n\n\u003e A platform defines the type of software running on a device or virtual machine. This can be helpful to model when it is necessary to distinguish between different versions or feature sets. Note that two devices of the same type may be assigned different platforms: For example, one Juniper MX240 might run Junos 14 while another runs Junos 15.",
+                        "description": "",
                         "description_kind": "markdown"
                     },
                     "version": 0
